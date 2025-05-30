@@ -59,7 +59,7 @@ const Analytics = () => {
   useEffect(() => {
     const fetchChefs = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API}chefs/get-chefs`, {
+        const res = await fetch(`${import.meta.env.VITE_API}/chefs/get-chefs`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -73,12 +73,15 @@ const Analytics = () => {
     };
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API}/orders/get-orders`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          `${import.meta.env.VITE_API}/orders/get-orders`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await res.json();
         setOrders(data);
         let rev = data?.reduce((acc, item) => acc + item.totalPrice, 0);
