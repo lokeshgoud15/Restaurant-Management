@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "http://localhost:5174"],
+  origin: ["https://restaurant-management-user.vercel.app", "https://restaurant-management-user-git-main-lokeshs-projects-f594ae13.vercel.app","https://restaurant-management-lyart-seven.vercel.app","https://restaurant-management-git-main-lokeshs-projects-f594ae13.vercel.app"],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   optionsSuccessStatus: 200,
