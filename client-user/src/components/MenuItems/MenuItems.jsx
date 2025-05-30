@@ -10,7 +10,7 @@ import pizza4 from "../../assets/pizzas/pizza4.png";
 import pizza5 from "../../assets/pizzas/pizza5.png";
 import pizza6 from "../../assets/pizzas/pizza6.png";
 import burger1 from "../../assets/burgers/burger.jpg";
-import coke from "../../assets/Drinks/coke.jpg";
+import coke from "../../assets/drinks/coke.jpg";
 import veggiesImage from "../../assets/veggies/veggiesImage.jpg";
 import friesImage from "../../assets/frenchfries/friesImage.jpg";
 import { useNavigate } from "react-router-dom";
