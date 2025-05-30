@@ -113,7 +113,7 @@ const Checkout = () => {
         dispatch(clearItems());
         setTimeout(() => {
           navigate("/");
-        }, 500);
+        }, 1000);
       }
     } catch (err) {
       console.error("Error creating order:", err);
