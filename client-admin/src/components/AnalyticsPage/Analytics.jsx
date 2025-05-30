@@ -38,12 +38,15 @@ const Analytics = () => {
   useEffect(() => {
     const fetchTables = async () => {
       try {
-        const res = await fetch("http://localhost:8000/tables/get-tables", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          `${import.meta.env.VITE_API}/tables/get-tables`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await res.json();
         setTables(data);
       } catch (error) {
@@ -56,7 +59,7 @@ const Analytics = () => {
   useEffect(() => {
     const fetchChefs = async () => {
       try {
-        const res = await fetch("http://localhost:8000/chefs/get-chefs", {
+        const res = await fetch(`${import.meta.env.VITE_API}chefs/get-chefs`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +73,7 @@ const Analytics = () => {
     };
     const fetchOrders = async () => {
       try {
-        const res = await fetch("http://localhost:8000/orders/get-orders", {
+        const res = await fetch(`${import.meta.env.VITE_API}/orders/get-orders`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

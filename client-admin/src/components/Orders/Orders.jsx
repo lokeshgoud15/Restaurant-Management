@@ -9,7 +9,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchTables = async () => {
       try {
-        const res = await fetch("http://localhost:8000/tables/get-tables", {
+        const res = await fetch(`${import.meta.env.VITE_API}/tables/get-tables`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -27,7 +27,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch("http://localhost:8000/orders/get-orders", {
+        const res = await fetch(`${import.meta.env.VITE_API}/orders/get-orders`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

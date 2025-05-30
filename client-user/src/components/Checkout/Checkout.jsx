@@ -99,11 +99,14 @@ const Checkout = () => {
         return toast.error("Please fill all the details");
     }
     try {
-      const response = await fetch("http://localhost:8000/orders/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(orderData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API}/orders/create`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(orderData),
+        }
+      );
       const data = await response.json();
       if (data?.success) {
         toast.success(data.message);
