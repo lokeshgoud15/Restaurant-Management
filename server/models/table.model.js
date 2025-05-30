@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const TableSchema = new mongoose.Schema(
   {
@@ -19,4 +19,4 @@ const TableSchema = new mongoose.Schema(
 
 const Table = mongoose.model("Table", TableSchema);
 
-export default Table;
+module.exports = Table;

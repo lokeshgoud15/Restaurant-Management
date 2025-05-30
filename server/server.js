@@ -1,12 +1,16 @@
-import express from "express";
-import dotenv from "dotenv";
+const mongoose = require("mongoose");
+const express = require("express");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+
+const connectDB = require("./DB");
+const orderRoutes = require("./routes/order.routes");
+const tableRouter = require("./routes/table.routes");
+const chefRouter = require("./routes/chef.routes");
+
 dotenv.config();
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import connectDB from "./DB.js";
-import orderRoutes from "./routes/order.routes.js";
-import tableRouter from "./routes/table.routes.js";
-import chefRouter from "./routes/chef.routes.js";
+
 const app = express();
 
 const corsOptions = {
@@ -15,6 +19,7 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   optionsSuccessStatus: 200,
 };
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
@@ -27,6 +32,6 @@ app.use("/chefs", chefRouter);
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
-  console.log("server is ready at port 8000");
+  console.log("Server is ready at port", PORT);
   connectDB();
 });

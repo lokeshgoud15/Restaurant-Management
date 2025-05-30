@@ -1,9 +1,9 @@
-import Order from "../models/order.model.js";
-import Chef from "../models/chef.model.js";
-import Table from "./../models/table.model.js";
-import cron from "node-cron";
+const Order = require("../models/order.model");
+const Chef = require("../models/chef.model");
+const Table = require("../models/table.model");
+const cron = require("node-cron");
 
-export const createOrder = async (req, res) => {
+const createOrder = async (req, res) => {
   const {
     customerDetails,
     Items,
@@ -151,7 +151,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
-export const getAllOrders = async (req, res) => {
+const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find();
     res.status(200).json(orders);
@@ -160,7 +160,7 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
-export const updateOrderById = async (req, res) => {
+const updateOrderById = async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
   try {
@@ -173,7 +173,7 @@ export const updateOrderById = async (req, res) => {
   }
 };
 
-export const updateOrderStatus = async (req, res) => {
+const updateOrderStatus = async () => {
   try {
     const orders = await Order.find({ status: { $ne: "served" } });
     if (!orders || orders.length === 0) {
@@ -211,6 +211,14 @@ export const updateOrderStatus = async (req, res) => {
     throw error;
   }
 };
+
 cron.schedule("* * * * *", () => {
   updateOrderStatus();
 });
+
+module.exports = {
+  createOrder,
+  getAllOrders,
+  updateOrderById,
+  updateOrderStatus,
+};

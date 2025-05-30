@@ -1,6 +1,6 @@
-import Table from "../models/table.model.js";
+const Table = require("../models/table.model");
 
-export const CreateTable = async (req, res) => {
+const CreateTable = async (req, res) => {
   const { name, noOfSeats } = req.body;
   if (!name || !noOfSeats) {
     return res.status(400).json({ message: "All fields are required" });
@@ -10,14 +10,14 @@ export const CreateTable = async (req, res) => {
     return res.status(400).json({ message: "Table name already exists" });
   }
   try {
-    Table.create({ name: `Table ${name}`, noOfSeats });
+    await Table.create({ name: `Table ${name}`, noOfSeats });
     res.status(201).json({ message: "Table created successfully" });
   } catch (error) {
     res.status(500).json({ message: "Error creating table", error });
   }
 };
 
-export const create30Tables = async (req, res) => {
+const create30Tables = async (req, res) => {
   try {
     for (let i = 1; i <= 30; i++) {
       const randomSeats = Math.floor(Math.random() * 7) + 1;
@@ -30,7 +30,7 @@ export const create30Tables = async (req, res) => {
   }
 };
 
-export const deteleTable = async (req, res) => {
+const deteleTable = async (req, res) => {
   try {
     await Table.deleteMany({});
     res.status(200).json({ message: "Tables deleted successfully" });
@@ -40,20 +40,20 @@ export const deteleTable = async (req, res) => {
   }
 };
 
-export const updateTables = async (req, res) => {
+const updateTables = async (req, res) => {
   try {
     const tables = await Table.find();
-    tables.forEach((table) => {
+    for (const table of tables) {
       table.noOfSeats = Math.floor(Math.random() * 6) + 2;
-      table.save();
-    });
+      await table.save();
+    }
     console.log("All tables updated with random noOfSeats");
   } catch (error) {
     console.error("Error updating tables:", error);
   }
 };
 
-export const updateTableById = async (req, res) => {
+const updateTableById = async (req, res) => {
   try {
     const table = await Table.findById(req.params.id);
     if (!table) {
@@ -68,7 +68,7 @@ export const updateTableById = async (req, res) => {
   }
 };
 
-export const deleteTableById = async (req, res) => {
+const deleteTableById = async (req, res) => {
   const tableId = req.params.id;
 
   try {
@@ -91,7 +91,7 @@ export const deleteTableById = async (req, res) => {
   }
 };
 
-export const getTables = async (req, res) => {
+const getTables = async (req, res) => {
   try {
     const tables = await Table.find();
     res.status(200).json(tables);
@@ -99,4 +99,14 @@ export const getTables = async (req, res) => {
     console.error("Error fetching tables:", error);
     res.status(500).json({ message: "Error fetching tables" });
   }
+};
+
+module.exports = {
+  CreateTable,
+  create30Tables,
+  deteleTable,
+  updateTables,
+  updateTableById,
+  deleteTableById,
+  getTables,
 };

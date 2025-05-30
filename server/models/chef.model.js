@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const chefSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -26,4 +26,5 @@ const chefSchema = new mongoose.Schema({
 
 const Chef = mongoose.model("Chef", chefSchema);
 
-export default Chef;
+module.exports = Chef;
+
