@@ -230,6 +230,9 @@ const MenuItems = () => {
       navigate("/checkout");
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (activeItem === "Burger") {

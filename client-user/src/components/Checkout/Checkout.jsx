@@ -149,6 +149,11 @@ const Checkout = () => {
   const handleDecrement = (item, index) => {
     dispatch(DecrementAfterCheckout({ item, index }));
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <div
