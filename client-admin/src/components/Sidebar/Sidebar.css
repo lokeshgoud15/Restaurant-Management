@@ -1,0 +1,71 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  height: 96vh;
+  margin: 10px 20px;
+}
+.app-icon {
+  width: 65px;
+  height: 65px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.app-features {
+  height: 80vh;
+  background-color: #ebe7e7;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.features {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: white;
+}
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #f0f5f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.feature-icon img {
+  width: 24px;
+  height: 24px;
+}
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #f0f5f3;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 10px;
+}
