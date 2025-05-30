@@ -446,10 +446,7 @@ const Analytics = () => {
                         ? 0 + table?.name?.slice(6, 10)
                         : table?.name?.slice(6, 9) || ""}
                     </span>
-                    {/* <div className="chairs">
-                      <img src={chair} alt="" />
-                      <span>{table?.noOfSeats || 0}</span>
-                    </div> */}
+                
                   </div>
                 </div>
               ))}
