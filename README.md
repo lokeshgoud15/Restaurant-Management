@@ -171,6 +171,6 @@ This project is open source and available under the MIT License.
 Pull requests are welcome! For major changes, please open an issue first to discuss your ideas.
 
 # 👨‍💻 Author
-Lokesh Nalamasa
-📧 nlokeshgoud7@gmail.com
-🌐 GitHub | LinkedIn
+- Lokesh Nalamasa
+- 📧 nlokeshgoud7@gmail.com
+- 🌐 GitHub | LinkedIn
